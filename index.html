@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			BasicBankingSystem 
+		</title>
+		<style>
+			body
+			{
+				background-image: radial-gradient( white,#7ed7e0);
+			}
+			.parent
+			{
+				background-color:azure;
+				border:0px;
+				border-radius:20px;
+				box-shadow:2px 2px #626964;
+				width:100%;
+			}
+			.child
+			{
+				float:left;
+				width:18%;
+				height:450px;
+				padding:0px 20px;
+				margin:10px;
+				background-color:#f0dcbd;
+				border:0px;
+				border-radius:8px;
+				box-shadow:2px 2px #626964;
+			}
+			.story
+			{
+				text-align:center;
+				font-size:22px;
+			}
+			.grade
+			{
+				text-align:center;
+				color:#012b70;
+				
+			}
+			.update
+			{
+				width:100%;
+			}
+			.updatechild
+			{
+				float:left;
+				width:22%;
+				height:650px;
+				background-color:#d3d9e3;
+				border:0px;
+				box-shadow:2px 2px #626964;
+				padding:10px 10px;
+			}
+			.image
+			{
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+				opacity:0.5;
+			}
+			.but
+			{
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+				font-size:23px;
+				color:white;
+				background-color:#029ee6;
+				
+			}
+			.but:hover
+			{	
+				font-size:25px;
+				color:white;
+				background-color:#028ac9;
+			}
+			.a1
+			{
+				background-image: linear-gradient(to bottom ,orange,white,green);	
+				
+			}
+			.a1:hover
+			{
+				text-decoration:underline;
+			}
+			.back
+			{
+				background-image:url(https://cdn.kalingatv.com/wp-content/uploads/2019/06/ISRO-1.jpg);
+				background-repeat:no-repeat;
+				height:400px;
+				width:800px;
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<p style="text-align:left;
+				margin:0px 50px;
+				font-family:courier new">
+			Bank Of Sparks
+		</p>
+		<p style="margin:0px 50px">
+			<img src="https://tse1.mm.bing.net/th?id=OIP.fKbMlgFMSR5JMChE4rIntAHaE1&pid=Api&P=0&w=268&h=174" height=100 width=100 style="float:left">
+			<img src="https://tse3.mm.bing.net/th?id=OIP.-_ud03RRngYfrgNK2yTqbwHaD4&pid=Api&P=0&w=374&h=196" height=100 width=70 style="float:left">
+			<img src="https://tse2.mm.bing.net/th?id=OIP.47Dep8SRexPxg9mLa5L3-wHaFp&pid=Api&P=0&w=214&h=163" height=100 width=100 style="float:left">
+		</p>
+		<br><br><br><br><br><br>
+		<p style="text-align:left;
+				margin:0px 50px;
+				font-family:Helvetica;
+				font-size:18px">
+				<b>
+					Department of Grip
+				</b>
+		</p>
+		<br>
+		<p style="text-align:left;
+				margin:0px 50px;
+				font-family:verdana;
+				color:white;
+				font-size:18px">
+			<span style="background-color:red">
+				PUBLIC NOTICE - ATTENTION : JOB ASPIRANTS
+			</span>
+		</p>
+		<br><br>
+		
+		<p style="text-align:left;
+				font-family:courier new;
+				background-color:#f5c9c6;
+				font-size:20px;
+				color:blue">
+			<a href="" style="text-decoration:none">About</a>&nbsp;&nbsp;&nbsp;
+			<a href="" style="text-decoration:none">Contact us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</p>
+		<br><br>
+		<div class="parent">
+			<center>
+				<h1>Basic Banking System</h1>
+			
+				<form method=post>
+					<input type=submit  style="background-color:#8FBC8F;font-style:bold;" value ="view details" name="btn_click">
+				</form>
+				<p id="details">
+					
+					<?php
+						function disp()
+						{
+							$host="localhost";
+							$username="id18948411_grip";
+							$password="Tharun@12345";
+							$dbname="id18948411_customers";
+
+							$conn=mysqli_connect($host,$username,$password,$dbname);
+							if(mysqli_connect_errno())
+								echo "Connection could not established...".mysqli_connect_error();
+							else
+								$query="select * from customer";
+								$result=mysqli_query($conn,$query);
+								echo "<br>";
+								echo "<table border='1' cellspacing='0'>";
+								Echo "<tr><td>Name</td><td>Email</td><td>Balance</td>";
+								foreach($result as $row)
+								{
+									echo "<tr>";
+									echo "<td>$row[name]</td><td>$row[email]</td><td>$row[balance]</td>";
+									echo "</tr>";
+								}
+								echo "</table>";
+								echo "<br>";
+								echo '<form method="post">
+									<label for=sender>Enter Sender:</label>
+									<input  type=text id="s" name=sender placeholder="sender name match exactly"/>&nbsp;&nbsp;
+									<label for=sender>Enter Receiver:</label>
+									<input name=receiver type=text  id="r" placeholder="Receiver name match exactly"/><br/><br/>
+									<label for=sender>Enter Money to Transfer:</label>
+									<input name=amount type=text  placeholder="Please enter Money"/><br/><br/>
+									<input type=submit style="background-color:#ADD8E6;" name=btn value="Send"/>
+								</form>';
+						}
+						if(isset($_POST['btn_click'])){
+							
+								
+
+								disp();
+								
+								
+						}
+						
+					?>	
+				</p>
+			
+				<?php
+					if(isset($_POST['btn'])){
+							$host="localhost";
+							$username="id18948411_grip";
+							$password="Tharun@12345";
+							$dbname="id18948411_customers";
+
+							$conn=mysqli_connect($host,$username,$password,$dbname);
+							if(mysqli_connect_errno())
+								echo "Connection could not established...".mysqli_connect_error();
+							else
+								
+								$sender=$_POST['sender'];
+								
+								
+								
+								$query="select * from customer where name='$sender'";
+								$result=mysqli_query($conn,$query);
+								foreach($result as $row)
+								{
+									$bal=$row[balance];
+									
+								}
+								if (mysqli_num_rows($result) > 0)
+								{
+									$money=$_POST['amount'];
+									
+									if($bal>=$money)
+									{
+										$receiver=$_POST['receiver'];
+										$query="select * from customer where name='$receiver'";
+										$result=mysqli_query($conn,$query);
+										foreach($result as $row)
+										{
+											$bal1=$row[balance];
+											
+										}
+										if (mysqli_num_rows($result) > 0)
+										{
+										
+											if(strcmp($sender,$receiver)!=0){
+												echo "<h3>After transaction the details are</h3>";
+												disp();
+											}
+											else{
+												$updatedmoney=$bal-$money;
+											
+												$query="update customer SET balance='$updatedmoney' where name='$sender'";
+												$result=mysqli_query($conn,$query);
+												
+												
+												$updatedmoney1=$bal1+$money;
+												
+												$query="update customer SET balance='$updatedmoney1' where name='$receiver'";
+												$result=mysqli_query($conn,$query);
+												
+												echo "<h3>After transaction the details are</h3>";
+												disp();
+												echo '<form method="post">
+													  <input type=submit style="background-color:#ADD8E6;" name=std value="Transaction details"/>
+													  </form>';
+												if(isset($_POST['std'])){
+													echo '<script>alert("Transaction Details:\nBefore:\nsender balance:${$bal}\nreceiver balance:${$bal1}\nAfter:\n
+													sender balance:${$updatedmoney}\nreceiver balance:${$updatedmoney1)")</script>';
+												}
+											}
+										}
+										else{
+											echo '<script>alert("Receiver Details not found")</script>';
+											disp();
+										}
+									}
+									else{
+										echo '<script>alert("Insuffiecient Balance")</script>';
+										disp();
+									}
+										
+								}
+								else{
+									echo '<script>alert("Sender details not found")</script>';
+									disp();
+								}
+					}
+				?>
+			</center>
+		</div>
+	</body>
+	<footer>
+		<br/><br/><br/><br/><br/>
+		<center>
+			<p>For any Queries, Please Mail us at 
+				<a href="mailto:bbank@in.com">bbank@in.com</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</p>
+		</center>
+	</footer>
+		
+</html>
